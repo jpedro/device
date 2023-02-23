@@ -3,8 +3,8 @@ module github.jpedro/sync
 go 1.20
 
 require (
-	firebase.google.com/go v3.13.0+incompatible
 	firebase.google.com/go/v4 v4.10.0
+	github.com/jpedro/color v1.0.0
 )
 
 require (

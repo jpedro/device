@@ -1,15 +1,17 @@
 package main
 
 import (
-    "context"
-    "fmt"
-    "log"
-    "os/exec"
-    "strings"
-    "time"
+	"context"
+	"fmt"
+	"log"
+	"os/exec"
+	"strings"
+	"time"
 
-    "firebase.google.com/go/v4"
-    "firebase.google.com/go/v4/db"
+	"firebase.google.com/go/v4"
+	"firebase.google.com/go/v4/db"
+	// "gopkg.in/jpedro/color.v1"
+	"github.com/jpedro/color"
 )
 
 var (
@@ -98,10 +100,16 @@ func main() {
         Version: version,
         UUID: uuid,
     })
-    fmt.Println("Device saved:", serial)
+    fmt.Printf("Device saved: %s.\n", color.Green(serial))
 
     save("messages/"+serial, Message{
         Content: "Hei " + time.Now().Format("2006-01-31 01:37:58"),
         Created: time.Now(),
     })
+
+    var stored Device
+    if err := client.NewRef("devices/"+serial).Get(ctx, &stored); err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Device %s has UUID %s.\n", color.Green(stored.Serial), color.Green(stored.UUID))
 }
