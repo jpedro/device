@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"os/exec"
 	"strings"
 	"time"
@@ -81,9 +82,15 @@ func save(path string, record any) {
 }
 
 func main() {
-    go func() {
-        fmt.Println("Hello")
-    }()
+    fmt.Printf("os.Args: %v\n", os.Args)
+    now := time.Now()
+    message := ""
+    if len(os.Args) > 1 {
+        message = os.Args[1]
+    } else {
+        message = "Hei " + now.Format("2006-01-02 15:04:05")
+    }
+    fmt.Printf("message: %#v\n", message)
 
     loadHardware()
     loadSoftware()
@@ -102,9 +109,8 @@ func main() {
     })
     fmt.Printf("Device saved: %s.\n", color.Green(serial))
 
-    now := time.Now()
     save("messages/"+serial, Message{
-        Content: "Hei " + now.Format("2006-01-02 15:04:05"),
+        Content: message,
         Created: now,
     })
 

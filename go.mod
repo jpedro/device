@@ -1,4 +1,4 @@
-module github.jpedro/sync
+module github.jpedro/device
 
 go 1.20
 
