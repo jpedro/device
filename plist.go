@@ -6,7 +6,7 @@ const plist string = `
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>dev.jpedro.sync</string>
+  <string>dev.jpedro.device</string>
 
   <key>ProgramArguments</key>
   <array>
@@ -24,9 +24,9 @@ const plist string = `
   <true/>
 
   <key>StandardOutPath</key>
-  <string>/tmp/sync.log</string>
+  <string>/tmp/device.log</string>
   <key>StandardErrorPath</key>
-  <string>/tmp/sync.err</string>
+  <string>/tmp/device.err</string>
 </dict>
 </plist>
 `
