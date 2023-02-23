@@ -10,7 +10,8 @@ const plist string = `
 
   <key>ProgramArguments</key>
   <array>
-    <string>sync-device</string>
+    <string>device</string>
+    <string>sync</string>
   </array>
 
   <key>Nice</key>
