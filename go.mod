@@ -1,4 +1,4 @@
-module github.jpedro/device
+module github.com/jpedro/device
 
 go 1.20
 
