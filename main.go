@@ -102,9 +102,10 @@ func main() {
     })
     fmt.Printf("Device saved: %s.\n", color.Green(serial))
 
+    now := time.Now()
     save("messages/"+serial, Message{
-        Content: "Hei " + time.Now().Format("2006-01-31 01:37:58"),
-        Created: time.Now(),
+        Content: "Hei " + now.Format("2006-01-02 15:04:05"),
+        Created: now,
     })
 
     var stored Device
